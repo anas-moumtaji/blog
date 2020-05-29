@@ -1,0 +1,40 @@
+<% if logged_in? %>
+
+<%=   form_with model: @article do |f|  %>
+
+<div class="container">
+
+  <table class="table table-striped">
+      <tr>
+        <th><%=  f.label :title %></th>
+        <td><%=  f.text_field :title , rows:30  , class: "form-control" %></td>
+      </tr>
+
+      <tr>
+        <th><%=  f.label :description%></th>
+        <td><%=  f.text_area :description, rows:10 , class: "form-control" %></td>
+      </tr>
+
+
+  </table>
+  <%=  f.submit "Creer" , class: "btn btn-lg btn-primary" %>
+</div>
+  <% end %>
+
+  <% else %>
+
+
+
+
+
+<div class="jumbotron">
+  <h1 class="display-4">LE BLOG</h1>
+  <p class="lead">Un blog ou blogu est un type de site web — ou une partie d'un site web — utilisé pour la publication périodique et régulière d'articles personnels, généralement succincts, rendant compte d'une actualité autour d'une thématique particulière. À la manière d'un journal intime, ces articles — appelés billets — publiés par son/ses propriétaire(s) ou son/ses webmaster(s), sont typiquement datés, signés et présentés dans un ordre antéchronologique, c'est-à-dire du plus récent au plus ancien</p>
+  <hr class="my-4">
+  <p>Le terme « blog » est issu de l'aphérèse d'un mot composé, né de la contraction de « Web log » ; en anglais, log peut signifier registre ou journal. Ce terme est employé pour la première fois par Jorn Barger, en 1997.</p>
+  <p class="lead">
+    <%= link_to "S'inscrire" , new_utilisateur_path, class: "btn btn-lg btn-primary" %>
+  </p>
+</div>
+
+<% end %>

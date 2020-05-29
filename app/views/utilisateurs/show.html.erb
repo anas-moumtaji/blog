@@ -1,0 +1,29 @@
+
+<%  if @utilisateur.articles.any?  %>
+<h3> Articles ( <%= @utilisateur.articles.count %>)  </h3>
+
+<div class="container">
+
+<table class="table">
+<tr>
+  <th>Nom Utilisateur</th>
+  <th>titre Article</th>
+  <th>Description Article</th>
+  <th>Posté</th>
+</tr>
+
+  <% @articles.each do |article|  %>
+  <tr>
+    <td>   <%= link_to article.utilisateur.nom, article.utilisateur %>   </td>
+    <td>   <%=  article.title%>   </td>
+    <td>   <%=  article.description%>   </td>
+    <td>   <%= time_ago_in_words(article.created_at) %>   </td>
+  </tr>
+  <% end %>
+
+  </table>
+
+  <%= will_paginate @articles  %>
+<% end %>
+
+</div>

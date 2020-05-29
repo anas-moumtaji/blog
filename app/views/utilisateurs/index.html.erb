@@ -1,0 +1,25 @@
+<h1>Tous les utilisateur</h1>
+
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Supprimer</th>
+    </tr>
+
+    <% @utilisateurs.each do |utilisateur|  %>
+    <tr>
+      <td>   <%= link_to utilisateur.nom, utilisateur %>   </td>
+      <td>   <%= link_to utilisateur.email, utilisateur %>   </td>
+      <% if @utilisateur_courant.admin? || utilisateur_courant == utilisateur   %>
+        <td>   <%= link_to "delete", utilisateur, method: :delete, data: {confirm: "confirmer"}  %>   </td>
+      <% end  %>
+
+    </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate @utilisateurs, renderer: BootstrapPagination::Rails   , class: "pagination"%>
+
+</div>

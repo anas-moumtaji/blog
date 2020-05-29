@@ -1,0 +1,25 @@
+<div class="container">
+
+<h1>Insciption </h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+
+  <table class="table table-striped">
+
+      <tr>
+        <th><%=  f.label :email%></th>
+        <td><%=  f.email_field :email %></td>
+      </tr>
+
+      <tr>
+        <th><%=  f.label :password %></th>
+        <td><%=  f.password_field :password  %></td>
+      </tr>
+
+
+  </table>
+  <%=  f.submit "Creer" , class: "btn btn-lg btn-primary" %>
+
+  <% end %>
+
+</div>

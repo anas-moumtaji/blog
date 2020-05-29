@@ -1,0 +1,38 @@
+<div class="container">
+
+<h1>Actualisation </h1>
+
+<%=   form_with model: @utilisateur do |f|  %>
+
+<%= render 'shared/error_messages' %>
+
+  <table class="table table-striped">
+      <tr>
+        <th><%=  f.label :nom %></th>
+        <td><%=  f.text_field :nom %></td>
+      </tr>
+
+      <tr>
+        <th><%=  f.label :email%></th>
+        <td><%=  f.email_field :email %></td>
+      </tr>
+
+      <tr>
+        <th><%=  f.label :password %></th>
+        <td><%=  f.password_field :password  %></td>
+      </tr>
+
+
+      <tr>
+        <th><%=  f.label :password , "Confirmation" %></th>
+        <td><%=  f.password_field :password %></td>
+      </tr>
+
+
+
+  </table>
+  <%=  f.submit "Actualiser" , class: "btn btn-lg btn-primary" %>
+
+  <% end %>
+
+</div>
